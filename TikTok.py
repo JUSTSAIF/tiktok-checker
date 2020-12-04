@@ -11,7 +11,7 @@ print("""
 """)
 UFP = input('Username List : ')
 if os.path.isfile(UFP) == False:
-    print(" -"*10+"\n Err :: File Path Not Exist !\n"+" -"*10)
+    input(" -"*10+"\n Err :: File Path Not Exist !\n"+" -"*10)
     exit()
 sessionId = input("SessionID : ")
 UFP = open(UFP).read().splitlines()
@@ -26,11 +26,11 @@ for UFP in UFP:
         print ("\n", " -" * 18,"\n")
         data = '   @'+UFP+ava
         print (data)
-
-    if post == "" :
+    if post == "":
         chk("  :: Available +")
+        open("Available.txt", "a").write(UFP+"\n")
     elif post == "Login expired":
-        print(" -"*10+"\n Err :: Session ID Expired !\n"+" -"*10)
+        input(" -"*10+"\n Err :: Session ID Expired !\n"+" -"*10)
         exit()
     else:
         chk("  :: Not Available -")
